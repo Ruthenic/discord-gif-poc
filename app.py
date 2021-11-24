@@ -12,8 +12,8 @@ def POC():
     if not 'Electron/' in userAgent:
         return "<p>There could've been a payload here, where I sent your data off to some random server.</p>"
     else:
-        return send_file('actualGif.gif')
+        return await send_file('actualGif.gif')
 
 @app.route('/always.gif')
 def retGif():
-    return send_file('actualGif.gif')
+    return await send_file('actualGif.gif')
