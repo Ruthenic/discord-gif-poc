@@ -9,7 +9,8 @@ async def main():
 @app.route('/kinky.gif')
 async def POC():
     userAgent = request.headers.get('User-Agent')
-    if not 'Electron/' in userAgent:
+    print('[log]: useragent ' + userAgent + ' requested gif.')
+    if not 'Electron/' in userAgent and not 'discord/' in userAgent:
         return "<p>There could've been a payload here, where I sent your data off to some random server.</p>"
     else:
         return await send_file('actualGif.gif')
