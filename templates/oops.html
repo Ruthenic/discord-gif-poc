@@ -1,0 +1,17 @@
+<head>
+	<title>You just got jebaited.</title>
+</head>
+<body>
+	<center>
+		<b>Welcome to the club.</b>
+		<p>You just fell for the gif scam.</p>
+	</center>
+	<p>TLDR on how this works: When the useragent isn't one of a browser (such as chrome or firefox), the you saw when clicking is returned. Otherwise, this webpage is returned.</p>
+	<p>I could've just collected some information about you, such as:</p>
+	<ul>
+		<li>UserAgent: {{ request.headers.get('User-Agent') }}</li>
+		<li>IP: {{ request.remote_addr }}</li>
+	</ul>
+	<p>and have sent it to any server of my choosing.<br>Can I do much with this data? No.<br>Should you be worried? Unless you have a woefully outdated browser that can be exploited for RCE, probably not.</p>
+	<a href="/">Return to homepage</a>
+<body>
