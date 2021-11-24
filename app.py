@@ -3,11 +3,11 @@ from quart import Quart, request, send_file
 app = Quart(__name__)
 
 @app.route("/")
-def main():
+async def main():
     return "<center><b>POC for actual Discord image exploitation.</b><br>Send <a href='/kinky.gif'>this link</a> on Discord, and while using the electron client, compare the results of the discord image preview vs opening the original.</center>"
 
 @app.route('/kinky.gif')
-def POC():
+async def POC():
     userAgent = request.headers.get('User-Agent')
     if not 'Electron/' in userAgent:
         return "<p>There could've been a payload here, where I sent your data off to some random server.</p>"
@@ -15,5 +15,5 @@ def POC():
         return await send_file('actualGif.gif')
 
 @app.route('/always.gif')
-def retGif():
+async def retGif():
     return await send_file('actualGif.gif')
