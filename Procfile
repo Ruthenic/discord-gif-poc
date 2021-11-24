@@ -1,1 +1,1 @@
-web: hypercorn webApi:app -b 0.0.0.0:$PORT
+web: hypercorn app:app -b 0.0.0.0:$PORT
