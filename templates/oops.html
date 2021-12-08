@@ -4,14 +4,18 @@
 <body>
 	<center>
 		<b>Welcome to the club.</b>
-		<p>You just fell for the gif scam.</p>
+		<p>You just clicked on my totally legit gif.</p>
 	</center>
-	<p>TLDR on how this works: When the useragent isn't one of a browser (such as chrome or firefox), the you saw when clicking is returned. Otherwise, this webpage is returned.</p>
+	<p>TLDR on how this works: When the useragent isn't one of a browser (such as Chrome or Firefox), the you saw when clicking is returned. Otherwise, this webpage is returned.</p>
 	<p>I could've just collected some information about you, such as:</p>
 	<ul>
 		<li>UserAgent: {{ request.headers.get('User-Agent') }}</li>
 		<li>IP: {{ request.remote_addr }}</li>
+		<li id="res">Screen Resolution: </li>
 	</ul>
-	<p>and have sent it to any server of my choosing.<br>Can I do much with this data? No.<br>Should you be worried? Unless you have a woefully outdated browser that can be exploited for RCE, probably not.</p>
+	<p>and have sent it to any server of my choosing.<br>Can I do much with this data? No.<br>Should you be worried? Unless you have a woefully outdated browser that has an RCE, probably not.</p>
+	<script>
+		document.getElementById('res').innerHTML += `${(window.screen.width * window.devicePixelRatio).toString()}x${(window.screen.height * window.devicePixelRatio).toString()}`
+	</script>
 	<a href="/">Return to homepage</a>
 <body>
